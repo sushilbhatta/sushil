@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet" />
+</head>
+
+<body>
+    <header class="main-header">
+        <div>
+            <img src="{% static '/image/main_header_logo.jpg' %}" class="main-header__logo" alt="main-logo" />
+            <a href="" class="main-header__brand">Predicta</a>
+
+            {% if user.is_authenticated %}
+            <p class="username">Welcome,{{ user.username }}!</p>
+            {% endif %}
+        </div>
+        <nav class="main-nav">
+            <ul class="main-nav__items">
+                <li class="main-nav__item">
+                    <a href="/page/home/">Home</a>
+                </li>
+                <li class="main-nav__item">
+                    <a href="/page/about/">About us</a>
+                </li>
+                <li class="main-nav__item">
+                    <a href="/page/prediction/">Predict Now</a>
+                </li>
+                <li class="main-nav__item">
+                    <a href="/page/contact/">Contact us</a>
+                </li>
+
+                <li class="main-nav__item main-nav__item--cta">
+                    {% if user.is_authenticated %}
+                    <a href="/page/logout/">Logout</a>
+                    {% else %}
+                    <a href="/page/login/">Login</a>
+                    {% endif %}
+                </li>
+            </ul>
+        </nav>
+    </header>
+</body>
+<div>
+    <h1>The price of the house is: ${{ prediction }}</h1>
+</div>
+
+</html>

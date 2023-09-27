@@ -1,193 +1,163 @@
 {%load static%}
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Make Prediction</title>
-    <!-- google font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap"
-      rel="stylesheet"
-    />
-    <!-- css -->
-    <link rel="stylesheet" href="{%static '/css/shared.css'%}" />
-    <link rel="stylesheet" href="{%static '/css/p.css'%}" />
-    <!-- javasccript -->
-    <script src="{%static 'js/prediction.js'%}" defer></script>
-  </head>
 
-  <body>
-    <header class="main-header">
-      <div>
-        <img
-          src="{% static '/image/main_header_logo.jpg' %}"
-          class="main-header__logo"
-          alt="main-logo"
-        />
-        <a href="" class="main-header__brand">Predicta</a>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Make Prediction</title>
+  <!-- google font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet" />
+  <!-- css -->
+  <link rel="stylesheet" href="{%static '/css/shared.css'%}" />
+  <link rel="stylesheet" href="{%static '/css/p.css'%}" />
+  <!-- javasccript -->
+  <script src="{%static 'js/prediction.js'%}" defer></script>
+</head>
 
-        {% if user.is_authenticated %}
-        <p class="username">Welcome,{{ user.username }}!</p>
-        {% endif %}
+<body>
+  <header class="main-header">
+    <div>
+      <img src="{% static '/image/main_header_logo.jpg' %}" class="main-header__logo" alt="main-logo" />
+      <a href="" class="main-header__brand">Predicta</a>
+
+      {% if user.is_authenticated %}
+      <p class="username">Welcome,{{ user.username }}!</p>
+      {% endif %}
+    </div>
+    <nav class="main-nav">
+      <ul class="main-nav__items">
+        <li class="main-nav__item">
+          <a href="/page/home/">Home</a>
+        </li>
+        <li class="main-nav__item">
+          <a href="/page/about/">About us</a>
+        </li>
+        <li class="main-nav__item">
+          <a href="/page/prediction/">Predict Now</a>
+        </li>
+        <li class="main-nav__item">
+          <a href="/page/contact/">Contact us</a>
+        </li>
+
+        <li class="main-nav__item main-nav__item--cta">
+          {% if user.is_authenticated %}
+          <a href="/page/logout/">Logout</a>
+          {% else %}
+          <a href="/page/login/">Login</a>
+          {% endif %}
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <main id="make-prediction">
+    <div class="make-prediction__title">
+      <h1>Provide Information for your Dream House</h1>
+    </div>
+
+
+    <form action="" method="post" class="form-items">
+      {% csrf_token %}
+      <div class="form-item">
+        <label for="address">Location of House</label>
+        <input type="text" name="location" placeholder="Location of House" id="address" />
       </div>
-      <nav class="main-nav">
-        <ul class="main-nav__items">
-          <li class="main-nav__item">
-            <a href="/page/home/">Home</a>
-          </li>
-          <li class="main-nav__item">
-            <a href="/page/about/">About us</a>
-          </li>
-          <li class="main-nav__item">
-            <a href="/page/prediction/">Predict Now</a>
-          </li>
-          <li class="main-nav__item">
-            <a href="/page/contact/">Contact us</a>
-          </li>
 
-          <li class="main-nav__item main-nav__item--cta">
-            {% if user.is_authenticated %}
-            <a href="/page/logout/">Logout</a>
-            {% else %}
-            <a href="/page/login/">Login</a>
-            {% endif %}
-          </li>
-        </ul>
-      </nav>
-    </header>
-    <main id="make-prediction">
-      <div class="make-prediction__title">
-        <h1>Provide Information for your Dream House</h1>
+      <div class="form-item">
+        <label for="bedroom">Bedroom</label>
+        <input type="number" name="bedroom" placeholder="No of bedrooms" id="bedroom" />
       </div>
-      <form action="/prediction" method="post" class="form-items">
-        <div class="form-item">
-          <label for="address">Location of House</label>
-          <input
-            type="text"
-            name="location"
-            placeholder="Location of House"
-            id="address"
-          />
-        </div>
 
-        <div class="form-item">
-          <label for="bedroom">Bedroom</label>
-          <input
-            type="number"
-            name="bedroom"
-            placeholder="No of bedrooms"
-            id="bedroom"
-          />
-        </div>
+      <div class="form-item">
+        <label for="city">City</label>
+        <input type="text" name="city" placeholder="city" id="city" />
+      </div>
 
-        <div class="form-item">
-          <label for="city">City</label>
-          <input type="text" name="city" placeholder="city" id="city" />
-        </div>
+      <div class="form-item">
+        <label for="floors">No of floors</label>
+        <input type="number" name="floors" placeholder="No of floors" id="floors" />
+      </div>
 
-        <div class="form-item">
-          <label for="floors">No of floors</label>
-          <input
-            type="number"
-            name="floors"
-            placeholder="No of floors"
-            id="floors"
-          />
-        </div>
+      <div class="form-item">
+        <label for="bathroom">Bathroom</label>
+        <input type="number" name="bathroom" placeholder="No of Bathroom" id="bathroom" />
+      </div>
 
-        <div class="form-item">
-          <label for="bathroom">Bathroom</label>
-          <input
-            type="number"
-            name="bathroom"
-            placeholder="No of Bathroom"
-            id="bathroom"
-          />
-        </div>
+      <!-- ** -->
+      <div class="form-item">
+        <label for="parking">Parking Space</label>
+        <input type="number" name="parking" placeholder="Parking space" id="parking" />
+      </div>
 
-        <!-- ** -->
-        <div class="form-item">
-          <label for="parking">Parking Space</label>
-          <input
-            type="number"
-            name="parking"
-            placeholder="Parking space"
-            id="parking"
-          />
-        </div>
+      <div class="form-item">
+        <label for="face">House Face</label>
+        <select id="face">
+          <option value="east">East</option>
+          <option value="west">West</option>
+          <option value="north">North</option>
+          <option value="south">South</option>
+          <option value="northeast">NorthEast</option>
+          <option value="northwest">NorthWest</option>
+          <option value="southeast">SouthEast</option>
+          <option value="southwest">SouthWest</option>
+        </select>
+      </div>
 
-        <div class="form-item">
-          <label for="face">House Face</label>
-          <select id="face">
-            <option value="east">East</option>
-            <option value="west">West</option>
-            <option value="north">North</option>
-            <option value="south">South</option>
-            <option value="northeast">NorthEast</option>
-            <option value="northwest">NorthWest</option>
-            <option value="southeast">SouthEast</option>
-            <option value="southwest">SouthWest</option>
-          </select>
-        </div>
-
-        <div class="form-item">
-          <label for="amenities">Amenities</label>
-          <div class="custom-select">
-            <div class="select-selected">Select amenities</div>
-            <div class="select-items">
-              <div>
-                <input class="a" type="checkbox" value="drainage" />Drainage
-              </div>
-              <div>
-                <input class="a" type="checkbox" value="internet" />Internet
-              </div>
-              <div><input class="a" type="checkbox" value="cctv" />CCTV</div>
-              <div>
-                <input
-                  class="a"
-                  type="checkbox"
-                  value="electricity"
-                />Electricity
-              </div>
-              <div>
-                <input class="a" type="checkbox" value="garden" />Garden
-              </div>
-              <div>
-                <input class="a" type="checkbox" value="balcony" />Balcony
-              </div>
+      <div class="form-item">
+        <label for="amenities">Amenities</label>
+        <div class="custom-select">
+          <div class="select-selected">Select amenities</div>
+          <div class="select-items">
+            <div>
+              <input class="a" type="checkbox" value="drainage" />Drainage
+            </div>
+            <div>
+              <input class="a" type="checkbox" value="internet" />Internet
+            </div>
+            <div><input class="a" type="checkbox" value="cctv" />CCTV</div>
+            <div>
+              <input class="a" type="checkbox" value="electricity" />Electricity
+            </div>
+            <div>
+              <input class="a" type="checkbox" value="garden" />Garden
+            </div>
+            <div>
+              <input class="a" type="checkbox" value="balcony" />Balcony
             </div>
           </div>
         </div>
+      </div>
 
-        <div class="form-item">
-          <label for="roadtype">RoadType</label>
-          <select id="roadtype">
-            <option value="gravelled">Gravelled</option>
-            <option value="stabilized">Stabilized</option>
-            <option value="paved">Paved</option>
-            <option value="blacktopped">Blacktopped</option>
-            <option value="concrete">Concrete</option>
-            <option value="alley">Alley</option>
-          </select>
-        </div>
-        <div class="form-item"></div>
-        <button class="btn" type="submit">Make prediction</button>
-      </form>
-    </main>
-    <footer class="main-footer">
-      <nav>
-        <ul class="main-footer__links">
-          <li class="main-footer__link">
-            <a href="#">Support</a>
-          </li>
-          <li class="main-footer__link">
-            <a href="#">Terms of Use</a>
-          </li>
-        </ul>
-      </nav>
-    </footer>
-  </body>
+      <div class="form-item">
+        <label for="roadtype">RoadType</label>
+        <select id="roadtype">
+          <option value="gravelled">Gravelled</option>
+          <option value="stabilized">Stabilized</option>
+          <option value="paved">Paved</option>
+          <option value="blacktopped">Blacktopped</option>
+          <option value="concrete">Concrete</option>
+          <option value="alley">Alley</option>
+        </select>
+      </div>
+      <div class="form-item"></div>
+      <button class="btn" type="submit">Make prediction</button>
+    </form>
+  </main>
+  <footer class="main-footer">
+    <nav>
+      <ul class="main-footer__links">
+        <li class="main-footer__link">
+          <a href="#">Support</a>
+        </li>
+        <li class="main-footer__link">
+          <a href="#">Terms of Use</a>
+        </li>
+      </ul>
+    </nav>
+  </footer>
+</body>
+
 </html>

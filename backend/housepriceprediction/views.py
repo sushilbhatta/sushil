@@ -57,12 +57,6 @@ def custom_logout(request):
     auth_logout(request)
     return redirect('/page/login/')
 
-
-@login_required
-def prediction(request):
-    return render(request,'prediction/prediction.html')
-
-
 def signup(request):
     if request.method == 'POST':
         username = request.POST.get('username')
@@ -86,28 +80,51 @@ def signup(request):
             messages.error(
                 request, "Email is already in use. Please use a different email.")
             return redirect('signup')
-
-        # Create the user
-          # Check if the username is already taken
-        #
         else:
-
             my_user = User.objects.create_user(username, email, password1)
             my_user.save()
             return redirect('/page/login/')
-
-
-        # # Log the user in
-        # user = authenticate(request, username=username, password=password1)
-        # if user is not None:
-        #     login(request, user)
-
-        # messages.success(
-            # request, "Registration successful. You are now logged in.")
-        # return redirect('/page/login/')
-
-
     return render(request,'signup/signup.html')
 
 def error(request):
     return render(request,'404.html')
+
+
+
+# def make_prediction(form_data):
+#     # Add your prediction logic here
+#     # For demonstration purposes, let's assume a fixed prediction value
+#     return 100000
+
+
+def prediction(request):
+    if request.method == 'POST':
+        # Get form data from the request
+        location = request.POST.get('location')
+        bedroom = int(request.POST.get('bedroom'))
+        city = request.POST.get('city')
+        floors = int(request.POST.get('floors'))
+        bathroom = int(request.POST.get('bathroom'))
+        parking = int(request.POST.get('parking'))
+        house_face = request.POST.get('face')
+        # Extract amenities as a list of selected values
+        amenities = request.POST.getlist('amenities')
+        road_type = request.POST.get('roadtype')
+
+        # Perform validation if needed
+
+        # Call your prediction function to get the predicted value
+        # prediction_value = make_prediction(request.POST)
+        prediction_value = 19999
+
+        # Render the result template and pass the prediction value to the template context
+        return render(request, 'result/result.html', {'prediction': prediction_value})
+
+    return render(request, 'prediction/prediction.html')
+
+def result(request):
+    # Retrieve the prediction value from the URL parameter
+    prediction_value = request.GET.get('prediction')
+
+    # Render the result page and pass the prediction value to the template
+    return render(request, 'result/result.html', {'prediction': prediction_value})
