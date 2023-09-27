@@ -1,0 +1,136 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+}
+
+.main-header {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    padding: 20px 16px;
+    z-index: 1;
+    border-bottom: 0.1px solid gray;
+
+}
+
+.main-header>div {
+    padding-left: 32px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    vertical-align: middle;
+}
+
+.username {
+    display: inline-block;
+    height: 100%;
+    padding: 0 20px;
+    margin-top: 0px;
+    padding-bottom: 0;
+    text-align: center;
+    vertical-align: top;
+    color: forestgreen;
+    font-size: 20px;
+}
+
+.main-header__logo {
+    width: 26px;
+    height: 26px;
+}
+
+.main-header__brand {
+    color: crimson;
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 22px;
+    display: inline-block;
+    height: 22px;
+}
+
+.main-nav {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: flex-end;
+    text-align: right;
+    vertical-align: middle;
+}
+
+.main-nav__items {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.main-nav__item {
+    display: inline-block;
+    margin: 0 16px;
+}
+
+.main-nav__item a {
+    text-decoration: none;
+    color: black;
+    font-weight: 300;
+    padding: 3px 0;
+    font-size: 20px;
+}
+
+.main-nav__item a:hover,
+.main-nav__item a:active {
+    color: #00DFA2;
+    border-bottom: 5px solid white;
+}
+
+.main-nav__item--cta a {
+    font-weight: 600;
+    color: white;
+    background: #00DFA2;
+    padding: 8px 20px;
+    border-radius: 8px;
+}
+
+.main-nav__item--cta a:hover,
+.main-nav__item--cta a:active {
+    color: crimson;
+    background: white;
+    border: none;
+}
+
+.main-footer {
+    background: black;
+    padding: 32px;
+
+}
+
+.main-footer__links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.main-footer__link {
+    display: inline-block;
+    margin: 0 16px;
+}
+
+.main-footer__link a {
+    color: white;
+    text-decoration: none;
+}
+
+.main-footer__link a:hover,
+.main-footer__link a:active {
+    color: #ccc;
+}

@@ -1,0 +1,121 @@
+main{
+    background-color: lightgray;
+    margin-top: 70px;
+    margin-bottom: -40px;
+    position: relative;
+    z-index: -3;
+}
+#contract-items{
+    margin: 0 auto;
+    padding: 100px ;
+    /* padding-bottom: 80px; */
+    display: flex;
+    width: 80%;
+    flex-direction: row;
+    justify-content: center;
+    align-items:center;
+
+    
+    
+}
+.contract-detail{
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    background-color: white;
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
+}
+.contract-detail__title{
+    font-weight: 700;
+    font-size: 30px;
+    margin: 0;
+    padding: 30px;
+    padding-left: 20px;
+}
+.contract-detail__item {
+    padding: 6px;
+    padding-left: 20px;
+    display: flex;    
+}
+
+.contract-detail__item p{
+    display: inline-block;
+    font-size: 16px;
+    height: 30px;
+    padding: 4px;
+
+}
+.fa-solid{
+    margin-top:  16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    
+}
+.address{
+    margin-top: 0;
+}
+
+/*    form  */
+.contract-query{
+    border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
+    padding: 36px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    width:55% ;
+    justify-content: center;
+    align-items: center;
+}
+.contract-query input{
+   
+   
+    
+    height: 34px;
+    font-size: 16px;
+   
+   
+    
+    
+}
+.contract-query textarea{
+    font-size: 18px;
+   
+    height: 120px;
+}
+.query{
+    background-color:lightgray;
+    border: none;
+    width: 340px;
+    margin: 10px;
+    padding: 6px;
+    border-radius: 6px;
+    color: darkgray;;
+    font-weight: 400;
+    align-items: center;
+}
+.contract-query button{
+    text-align: center;
+    padding:6px;
+    margin: 10px;
+    margin-bottom: 35px;
+    text-align: center;
+    font-size: 16px;
+    background-color:#339655;
+    width: 340px;
+    height: 34px;
+    border:none;
+}
+.blue-background{
+    width: 100vw;
+    height: 40vh;
+    background-color:#339655 ;
+    position: absolute;
+    bottom: 30%;
+    z-index:-1;
+}

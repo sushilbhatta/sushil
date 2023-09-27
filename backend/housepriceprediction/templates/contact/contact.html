@@ -1,0 +1,126 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>contract Us</title>
+<!--                        google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!--                    fontawesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!--                    css -->
+    <link rel="stylesheet" href="{%static '/css/shared.css'%}">
+    <link rel="stylesheet" href="{%static '/css/contract.css'%}">
+</head>
+<body>
+    <header class="main-header">
+        <div>
+            <img src="{% static '/image/main_header_logo.jpg' %}" class="main-header__logo" alt="main-logo">
+            <a href="" class="main-header__brand">Predicta</a>
+
+            {% if user.is_authenticated %}
+            <p class="username">
+                Welcome,{{ user.username }}!
+            </p>
+            {% endif %}
+        </div>
+        <nav class="main-nav">
+            <ul class="main-nav__items">
+                <li class="main-nav__item">
+                    <a href="/page/home/">Home</a>
+                </li>
+                <li class="main-nav__item">
+                    <a href="/page/about/">About us</a>
+                </li>
+                <li class="main-nav__item">
+                    <a href="/page/prediction/">Predict Now</a>
+                </li>
+                <li class="main-nav__item">
+                    <a href="/page/contact/">Contact us</a>
+                </li>
+
+
+                <li class="main-nav__item main-nav__item--cta">
+                    {% if user.is_authenticated %}
+                    <a href="/page/logout/">Logout</a>
+                    {% else %}
+                    <a href="/page/login/">Login</a>
+                    {% endif %}
+                </li>
+            </ul>
+        </nav>
+    </header>
+    {% comment %} <header class="main-header">
+        <div>
+            <img src="{%static 'image/main_header_logo.jpg'%}" class="main-header__logo" alt="main-logo"><a href="/page/home/" class="main-header__brand">Predicta</a> 
+        </div>
+        <nav class="main-nav">
+            <ul class="main-nav__items">
+                <li class="main-nav__item">
+                    <a href="/page/home/">Home</a>
+                </li>
+                <li class="main-nav__item">
+                    <a href="/page/about/">About us</a>
+                </li>
+                <li class="main-nav__item">
+                    <a href="/page/prediction/">Predict Now</a>
+                </li>
+                <li class="main-nav__item">
+                    <a href="/page/contact/">Contact us</a>
+                </li>
+                <li class="main-nav__item main-nav__item--cta">
+                    <a href="/page/login/">Login</a>
+                </li>
+            </ul>
+        </nav>
+    </header> {% endcomment %}
+    <main>
+        <section id="contract-items">
+                <div class="contract-detail">
+                    <div>
+                        <h1 class="contract-detail__title">Contract Info</h1>
+                    </div>
+                    <div class="contract-detail__item number"> 
+                        <i class="fa-solid fa-phone-volume" style="color: #4fa155;"></i>
+                        <p>+977 9810199330</p>
+                    </div>
+                
+                    <div class="contract-detail__item email">
+                        <i class="fa-solid fa-envelope" style="color: #4fa155;"></i>
+                        <p>sushil.191547@edu.np</p>
+                    </div>
+                    <div class="contract-detail__item address">
+                        <i class="fa-solid fa-location-dot" style="color: #4fa155;"></i>
+                        <p>Ward No. 32, Chapro, Jabibuti, kathamandu, Nepal</p>
+                    </div>
+                </div>
+
+                <form action="" class="contract-query">
+                    <input type="text" name="name" placeholder="Enter your name" class="query">
+                    <input type="email" name="email" placeholder="Enter a valid email address" class="query">
+                    <textarea name="comment_message" cols="20" rows="10" class="query">Enter your message</textarea>  
+                    <button type="submit">Submit</button>                
+                </form>
+      
+        </section>
+        <section class="blue-background"></section>
+    </main>
+    <footer class="main-footer">
+        <nav>
+            <ul class="main-footer__links">
+                <li class="main-footer__link">
+                    <a href="#">Support</a>
+                </li>
+                <li class="main-footer__link">
+                    <a href="#">Terms of Use</a>
+                </li>
+            </ul>
+        </nav>
+    </footer>
+</body>
+</html>

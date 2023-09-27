@@ -1,0 +1,66 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Sign Up</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="{%static '/css/signup.css'%}" />
+
+    <script src="{%static 'js/signup.js'%}" defer></script>
+  </head>
+
+  <body>
+    <main class="login">
+      <section class="login-content">
+        <div class="login-content__title">Login to Predicta</div>
+        <form action="" class="login-content__form" id="form" method="POST">
+          {% csrf_token %}
+          <div class="form-item">
+            <input
+              type="text"
+              name="username"
+              id="username"
+              placeholder="Username"
+            />
+            <div class="error"></div>
+          </div>
+
+          <div class="form-item">
+            <input type="email" name="email" id="email" placeholder="Gmail" />
+            <div class="error"></div>
+          </div>
+
+          <div class="form-item">
+            <input
+              type="password"
+              name="password"
+              id="password"
+              placeholder="Choose Password"
+            />
+            <div class="error"></div>
+          </div>
+          <div class="form-item">
+            <input
+              type="password"
+              name="confirm_pass"
+              id="confirm_pass"
+              placeholder="Confirm Password"
+            />
+            <div class="error"></div>
+          </div>
+
+          <button class="btn" type="submit">Sign up</button>
+        </form>
+      </section>
+      <section class="login-image">
+        <img src="{%static 'image/signUp.jpg'%}" alt="login" />
+      </section>
+    </main>
+  </body>
+</html>
